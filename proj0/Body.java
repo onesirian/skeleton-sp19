@@ -6,6 +6,7 @@ public class Body {
     public double yyVel;
     public double mass;
     public String imgFileName;
+    public double[] allBodys;
    
     public Body(double xP, double yP, double xV, double yV, double m, String img){
         xxPos = xP;
@@ -53,5 +54,25 @@ public class Body {
         return yForce;
     }
 
+    public double calcNetForceExertedByX(Body[] allBodys) {
+        double netXForce=0;
+        for (Body oneBody:allBodys) {
+            if (this.equals(oneBody)) {
+                continue;
+            }
+            netXForce += calcForceExertedByX(oneBody);
+        }
+        return netXForce;
+    }
+    public double calcNetForceExertedByY(Body[] allBodys) {
+        double netYForce=0;
+        for (Body oneBody:allBodys) {
+            if (this.equals(oneBody)) {
+                continue;
+            }
+            netYForce += calcForceExertedByY(oneBody);
+        }
+        return netYForce;
+    }
 }
 
