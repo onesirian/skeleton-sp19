@@ -39,7 +39,19 @@ public class Body {
         return bodyForce;
     }
 
-    
+    public double calcForceExertedByX(Body b) {
+        double r = calcDistance(b);
+        double totalForce = calcForceExertedBy(b);
+        double xForce = totalForce *((b.xxPos - xxPos))/r;
+        return xForce;
+    }
+
+    public double calcForceExertedByY(Body b) {
+        double r = calcDistance(b);
+        double totalForce = calcForceExertedBy(b);
+        double yForce = totalForce *((b.yyPos - yyPos))/r;
+        return yForce;
+    }
 
 }
 
