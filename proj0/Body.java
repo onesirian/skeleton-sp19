@@ -1,7 +1,5 @@
-
-
 public class Body {
-
+    final static double G = 6.67 * Math.pow(10,-11);
     public double xxPos;
     public double yyPos;
     public double xxVel;
@@ -34,6 +32,14 @@ public class Body {
         double deltaR = Math.sqrt(Math.pow(deltaX,2)+ Math.pow(deltaY,2));
         return deltaR;
     }
+
+    public double calcForceExertedBy(Body b) {
+        double rSquared = Math.pow(calcDistance(b),2);
+        double bodyForce = (G * (mass*b.mass))/rSquared;
+        return bodyForce;
+    }
+
+    
 
 }
 
