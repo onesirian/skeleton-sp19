@@ -1,3 +1,5 @@
+
+
 public class Body {
 
     public double xxPos;
@@ -24,6 +26,13 @@ public class Body {
         yyVel = b.yyVel;
         mass = b.mass;
         imgFileName = b.imgFileName;
+    }
+
+    public double calcDistance(Body b) {
+        double deltaX = xxPos - b.xxPos;
+        double deltaY = yyPos - b.yyPos;
+        double deltaR = Math.sqrt(Math.pow(deltaX,2)+ Math.pow(deltaY,2));
+        return deltaR;
     }
 
 }
