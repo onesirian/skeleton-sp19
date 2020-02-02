@@ -83,5 +83,9 @@ public class Body {
         this.xxPos += this.xxVel * time;
         this.yyPos += this.yyVel * time;
     }
+
+    public void draw() {
+        StdDraw.picture(this.xxPos, this.yyPos, "images/" + this.imgFileName);
+    }
 }
 
