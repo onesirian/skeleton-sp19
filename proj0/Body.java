@@ -74,5 +74,14 @@ public class Body {
         }
         return netYForce;
     }
+
+    public void update(double time, double fX, double fY) {
+        double ax = fX / this.mass;
+        double ay = fY / this.mass;
+        this.xxVel += ax * time;
+        this.yyVel += ay * time;
+        this.xxPos += this.xxVel * time;
+        this.yyPos += this.yyVel * time;
+    }
 }
 
