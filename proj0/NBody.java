@@ -35,51 +35,32 @@ public class NBody {
         String filename = args[2];
         double radiusUniverse = NBody.readRadius(filename);
         Body[] Planets = NBody.readBodies(filename);
-
-        /** 
-         * Draw the background 
-         */
+        
         StdDraw.setScale(-radiusUniverse, radiusUniverse);
         StdDraw.clear();
         StdDraw.picture(0, 0, "images/starfield.jpg");
 
-        /** 
-         * Draw planets 
-         */
         for (Body planet : Planets) {
             planet.draw();
         }
 
-        /**
-         * Animation
-         */
         StdDraw.enableDoubleBuffering();
-        /**
-         * Set up a loop to loop until time variable reaches T
-         */
+   
         for (double t = 0; t <= T; t += dt) {
             double[] xForces = new double[Planets.length];
             double[] yForces = new double[Planets.length];
-            /**
-             * Calculate the net forces for every planet
-             */
+         
             for (int i = 0; i < Planets.length; i++) {
                 xForces[i] = Planets[i].calcNetForceExertedByX(Planets);
                 yForces[i] = Planets[i].calcNetForceExertedByY(Planets);
             }
-            /**
-             * Update positions and velocities of each planet
-             */
+         
             for (int i = 0; i < Planets.length; i++) {
                 Planets[i].update(dt, xForces[i], yForces[i]);
             }
-            /**
-             * Draw the background
-             */
+          
             StdDraw.picture(0, 0, "images/starfield.jpg");
-            /**
-             * Draw all planets
-             */
+          
             for (Body planet : Planets) {
                 planet.draw();
             }
