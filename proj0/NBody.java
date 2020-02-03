@@ -39,6 +39,9 @@ public class NBody {
         StdDraw.setScale(-radiusUniverse, radiusUniverse);
         StdDraw.clear();
         StdDraw.picture(0, 0, "images/starfield.jpg");
+        
+         
+        StdAudio.play("audio/2001.mid");
 
         for (Body planet : Planets) {
             planet.draw();
